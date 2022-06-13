@@ -60,13 +60,11 @@ class SliderResolver
             return null;
         }
 
-        ray($criteriaCollection);
         foreach ($criteriaCollection as $productCriteria) {
             foreach ($productCriteria as $criteria) {
                 $criteria->addAssociation('options.group');
             }
         }
-        ray($criteriaCollection);
 
         if ($products->isStatic()
             && $products->getValue()
