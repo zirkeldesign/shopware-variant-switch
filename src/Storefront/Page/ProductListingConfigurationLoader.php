@@ -113,7 +113,7 @@ class ProductListingConfigurationLoader
             'product.available',
         ]);
 
-        $combinations = $query->execute()->fetchAll();
+        $combinations = $query->execute()->fetchAllAssociative();
         $combinations = FetchModeHelper::groupUnique($combinations);
 
         foreach ($combinations as $combination) {
@@ -132,12 +132,12 @@ class ProductListingConfigurationLoader
             foreach ($groupedCombinations as $combination) {
                 $available = (bool) $combination['available'];
 
-                $options = json_decode($combination['options'], true);
-                if ($options === false) {
+                $optionIds = json_decode($combination['options'], true);
+                if ($optionIds === false) {
                     continue;
                 }
 
-                $result->addCombination($options, $available);
+                $result->addCombination($optionIds, $available);
             }
 
             $allCombinations[$parentId] = $result;
