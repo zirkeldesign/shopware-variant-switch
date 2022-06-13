@@ -48,7 +48,10 @@ class ProductListingConfigurationLoader
         foreach ($products as $product) {
             $productSettings = $this->loadSettings(clone $settings);
 
-            if ($product->getConfiguratorSettings() !== null || !$product->getParentId() || empty($productSettings[$product->getParentId()])) {
+            if ($product->getConfiguratorSettings() !== null
+                || !$product->getParentId()
+                || empty($productSettings[$product->getParentId()])
+            ) {
                 $product->addExtension('groups', new PropertyGroupCollection());
 
                 continue;
