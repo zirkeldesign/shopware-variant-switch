@@ -33,5 +33,13 @@
                 <argument type="service" id="service_container"/>
             </call>
         </service>
+
+        <!-- Resolvers !-->
+        <service id="SasVariantSwitch\Resolver\SliderResolver">
+          <argument type="service" id="Shopware\Core\Content\Product\Cms\ProductSliderCmsElementResolver"/>
+          <argument type="service" id="SasVariantSwitch\Storefront\Page\ProductListingConfigurationLoader"/>
+          <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+          <tag name="shopware.cms.data_resolver"/>
+        </service>
     </services>
 </container>
