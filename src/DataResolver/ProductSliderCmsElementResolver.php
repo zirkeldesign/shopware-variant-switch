@@ -2,30 +2,30 @@
 
 declare(strict_types=1);
 
-namespace SasVariantSwitch\Resolver;
+namespace SasVariantSwitch\DataResolver;
 
 use SasVariantSwitch\SasVariantSwitch;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Shopware\Core\Content\Cms\Aggregate\CmsSlot\CmsSlotEntity;
 use Shopware\Core\Content\Cms\DataResolver\CriteriaCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Shopware\Core\Content\Product\Cms\ProductSliderCmsElementResolver;
+use Shopware\Core\Content\Product\Cms\ProductSliderCmsElementResolver as BaseResolver;
 use SasVariantSwitch\Storefront\Page\ProductListingConfigurationLoader;
 use Shopware\Core\Content\Cms\DataResolver\Element\ElementDataCollection;
 use Shopware\Core\Content\Cms\DataResolver\ResolverContext\ResolverContext;
 
-class SliderResolver
+class ProductSliderCmsElementResolver
 {
     private const PRODUCT_SLIDER_ENTITY_FALLBACK = 'product-slider-entity-fallback';
 
-    private ProductSliderCmsElementResolver $elementResolver;
+    private BaseResolver $elementResolver;
 
     private SystemConfigService $systemConfigService;
 
     private ProductListingConfigurationLoader $listingConfigurationLoader;
 
     public function __construct(
-        ProductSliderCmsElementResolver $elementResolver,
+        BaseResolver $elementResolver,
         ProductListingConfigurationLoader $listingConfigurationLoader,
         SystemConfigService $systemConfigService
     ) {
