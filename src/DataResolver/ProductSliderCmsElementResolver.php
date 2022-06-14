@@ -9,12 +9,13 @@ use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Shopware\Core\Content\Cms\Aggregate\CmsSlot\CmsSlotEntity;
 use Shopware\Core\Content\Cms\DataResolver\CriteriaCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Shopware\Core\Content\Product\Cms\ProductSliderCmsElementResolver as BaseResolver;
 use SasVariantSwitch\Storefront\Page\ProductListingConfigurationLoader;
 use Shopware\Core\Content\Cms\DataResolver\Element\ElementDataCollection;
 use Shopware\Core\Content\Cms\DataResolver\ResolverContext\ResolverContext;
+use Shopware\Core\Content\Cms\DataResolver\Element\AbstractCmsElementResolver;
+use Shopware\Core\Content\Product\Cms\ProductSliderCmsElementResolver as BaseResolver;
 
-class ProductSliderCmsElementResolver
+class ProductSliderCmsElementResolver extends AbstractCmsElementResolver
 {
     private const PRODUCT_SLIDER_ENTITY_FALLBACK = 'product-slider-entity-fallback';
 
